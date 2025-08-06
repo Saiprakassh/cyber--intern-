@@ -1,0 +1,8 @@
+Return-Path: <security@google-alerts.com>
+Received: from unknown (HELO smtp.scamserver.org) (203.0.113.55)
+ by mail.clientserver.com with SMTP; Thu, 07 Aug 2025 11:12:03 +0000
+Received-SPF: Fail (mail.clientserver.com: domain of google-alerts.com does not designate 203.0.113.55 as permitted sender)
+Authentication-Results: mail.clientserver.com;
+ spf=fail (sender IP is 203.0.113.55) smtp.mailfrom=security@google-alerts.com;
+ dkim=none header.d=google-alerts.com;
+ dmarc=fail action=quarantine header.from=google-alerts.com
