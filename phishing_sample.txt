@@ -1,0 +1,5 @@
+From: Google Alerts <security@google-alerts.com>
+To: user@example.com
+Subject: Immediate Action Required: Suspicious Sign-in Detected
+Date: Thu, 07 Aug 2025 11:12:03 +0000
+Message-ID: <suspicious-id@google-alerts.com>
