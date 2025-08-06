@@ -1,61 +1,67 @@
-📧 Phishing Email Header Analysis – Sample Report
-🎯 Objective
-To detect and analyze phishing characteristics using email header metadata. This sample is analyzed using the Google Admin Toolbox – Message Header Analyzer.
+# 🎯 Phishing Email Analysis – Cyber Security Internship Task 2
 
-🧪 Sample Header Metadata (Summarized)
-Return-Path: security@google-alerts.com
+## ✅ Objective
+To identify and document phishing indicators in a suspicious email sample using manual analysis and online tools. The aim is to improve awareness of email-based threats and phishing detection techniques.
 
-Received from: smtp.scamserver.org (203.0.113.55)
+---
 
-SPF: ❌ fail – IP not permitted by sender domain
+## 📧 Sample Phishing Email
 
-DKIM: ❌ none – No DKIM signature present
+- **From:** Google Alerts `<security@google-alerts.com>`
+- **To:** user@example.com  
+- **Subject:** Immediate Action Required: Suspicious Sign-in Detected  
+- **Message ID:** suspicious-id@google-alerts.com  
+- **Date:** Thu, 07 Aug 2025 11:12:03 +0000
 
-DMARC: ❌ fail – Domain policy failed
+---
 
-From: Google Alerts <security@google-alerts.com>
+## 🔍 Message Header Analysis Using Google Admin Toolbox
 
-To: user@example.com
+### 📌 Authentication Checks:
 
-Subject: Immediate Action Required: Suspicious Sign-in Detected
+| Check  | Status | Details |
+|--------|--------|---------|
+| **SPF** | ❌ FAIL | IP `203.0.113.55` is not authorized to send emails on behalf of `google-alerts.com`. |
+| **DKIM** | ❌ None | No DKIM signature found for `google-alerts.com`. |
+| **DMARC** | ❌ FAIL | DMARC policy failed; domain `google-alerts.com` does not pass alignment. |
 
-Message-ID: suspicious-id@google-alerts.com
+### 🛠 Technical Breakdown:
 
-Authentication: All failed – high risk
+- **Sending IP Address:** `203.0.113.55` (flagged as suspicious)
+- **Received From:** `smtp.scamserver.org`
+- **Mail Server:** `mail.clientserver.com`
+- **HELO:** `smtp.scamserver.org`
+- **Return Path:** `<security@google-alerts.com>`
 
-⚠️ Key Phishing Indicators
-Indicator	Details	Status
-Spoofed Email	security@google-alerts.com not from real Google domain	❌
-Malicious Source IP	Sent from 203.0.113.55 (unauthorized server)	❌
-SPF/DKIM/DMARC	All authentication methods failed	❌
-Threatening Subject	“Suspicious Sign-in Detected” to induce fear	⚠️
-Generic Recipient	Sent to user@example.com (not personalized)	⚠️
+---
 
-🔍 Tool Used
-Google Admin Toolbox – Message Header Analyzer
-🔗 https://toolbox.googleapps.com/apps/messageheader/
+## ⚠️ Indicators of Phishing:
 
-📝 Conclusion
-The analyzed email header strongly suggests a phishing attempt based on:
+- ❗ **Sender spoofing:** Appears to be from `Google Alerts`, but the sending IP is unauthorized and hosted on a suspicious server.
+- ❗ **Failed SPF, DKIM, and DMARC:** Indicates the email fails standard email authentication protocols.
+- ❗ **Urgency in Subject Line:** “Immediate Action Required” is a typical tactic used in phishing attacks.
+- ❗ **Unknown Mail Route:** Message passed through unrecognized or suspicious servers (`smtp.scamserver.org`).
 
-Sender domain spoofing
+---
 
-Failed SPF, DKIM, and DMARC checks
+## ✅ Conclusion:
 
-Misleading subject line
+This email is a **phishing attempt**. It impersonates a trusted brand (Google) and urges the user to act immediately while failing all major email authentication checks (SPF, DKIM, DMARC).  
+Such emails should be reported and never interacted with.
 
-Originating from an untrusted IP
+---
 
-Such emails should be treated as malicious and reported or deleted immediately.
+## 🧰 Tools Used:
 
-📁 Repo Structure
-css
-Copy
-Edit
-Phishing-Email-Analysis-Task2/
-├── README.md
-├── phishing_sample.txt
-├── email_header_sample.txt
-├── Messageheader.png
-├── Message header analysis.png
-└── Phishing_Email_Header_Analysis_Report.pdf
+- [Google Admin Toolbox - Message Header Analyzer](https://toolbox.googleapps.com/apps/messageheader/)
+- Manual inspection of email metadata
+
+---
+
+## 📸 Screenshots
+
+1. **Message Header Analysis Summary:**  
+   ![Message Header Summary](./Message%20header%20analysis.png)
+
+2. **Raw Header Content:**  
+   ![Raw Header](./Messageheader.png)
